@@ -1,4 +1,4 @@
-# @strapi-provider-upload-aws-cloudfront
+# strapi-provider-upload-aws-cloudfront
 
 ## Resources
 
@@ -15,10 +15,10 @@
 
 ```bash
 # using yarn
-yarn add @strapi/provider-upload-aws-cloudfront
+yarn add strapi-provider-upload-aws-cloudfront
 
 # using npm
-npm install @strapi/provider-upload-aws-cloudfront --save
+npm install strapi-provider-upload-aws-cloudfront --save
 ```
 
 ## Configurations
@@ -68,8 +68,8 @@ module.exports = [
         useDefaults: true,
         directives: {
           'connect-src': ["'self'", 'https:'],
-          'img-src': ["'self'", 'data:', 'blob:', 'yourBucketName.s3.yourRegion.amazonaws.com'],
-          'media-src': ["'self'", 'data:', 'blob:', 'yourBucketName.s3.yourRegion.amazonaws.com'],
+          'img-src': ["'self'", 'data:', 'blob:', 'your Cloudfront Distribution domain name'],
+          'media-src': ["'self'", 'data:', 'blob:', 'your Cloudfront Distribution domain name'],
           upgradeInsecureRequests: null,
         },
       },
@@ -86,9 +86,6 @@ These are the minimum amount of permissions needed for this provider to work.
 ```json
 "Action": [
   "s3:PutObject",
-  "s3:GetObject",
-  "s3:ListBucket",
-  "s3:DeleteObject",
-  "s3:PutObjectAcl"
+  "s3:GetObject"
 ],
 ```
